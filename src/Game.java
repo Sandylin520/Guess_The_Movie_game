@@ -12,6 +12,16 @@ public class Game extends MovieList{
     private String rightLetters;
     private boolean gameWon;
 
+//Que: because above instance variable are private,
+//   so i cannot use below way to set up default value
+//   and can only use setter getter ,is that correct?
+//
+//    public Game() {
+//        wrongAttempt = 0;
+//        wrongLetters = "";
+//        rightLetters = "";
+//        gameWon = false;
+//    }
 
     public void setWrongAttempt(int wrongAttempt){
         this.wrongAttempt = wrongAttempt;
@@ -47,12 +57,12 @@ public class Game extends MovieList{
             return true;
         }
         //underscores are not covered at all in title, all characters are guessed correctly
-        if (!getEncryptedMovie().contains("_")) {
+        else if(!getHiddenMovieTitle().contains("_")) {
             gameWon = true;
             return true;
-        }
+        }else{
         //games continue, not end yet
-        return false;
+        return false;}
     }
 
 
@@ -131,9 +141,9 @@ public class Game extends MovieList{
     //method report latest guessed result of movie title
     public String getHiddenMovieTitle() {
         if (rightLetters.equals("")) {
-            return movieToGuess.replaceAll("[a-zA-Z]", "_");
+            return encryptedMovie.replaceAll("[a-zA-Z]", "_");
         } else {
-            return movieToGuess.replaceAll("[a-zA-Z&&[^" + rightLetters + "]]", "_");
+            return encryptedMovie.replaceAll("[a-zA-Z&&[^" + rightLetters + "]]", "_");
         }
     }
 

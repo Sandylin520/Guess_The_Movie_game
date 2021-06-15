@@ -22,7 +22,7 @@ public class MovieList{
     public MovieList(String filePath){
 
         //create an empty array and assign it to movies 配置記憶體空間
-        ArrayList<String> movies  = new ArrayList();
+        movies  = new ArrayList();
         //use File to read imported file 用File讀取file資料
         File file = new File(filePath);
 
@@ -35,9 +35,14 @@ public class MovieList{
             }
             int movieListLength = movies.size();
         }catch(FileNotFoundException e){//if the file doesn't exit, throw exception
-             System.out.println("File does not exist");
+            System.out.println("File does not exist");
         }
-        System.out.println(movies);
+
+ // System.out.println(movies);
+ //  => [the shawshank redemption, the godfather, the dark knight, schindler's list, pulp fiction, the lord of the rings, the good the bad and the ugly]
+
+ // I have checked movies did content the array item but movies.size()  didnt return 7
+ //Que: System.out.println("movieListLength: "+ movieListLength ); =>why print out movieListLength: 0
     }
 
 

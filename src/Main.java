@@ -42,13 +42,15 @@ public class Main {
               display current hidden movie title , hint:getHiddenMovieTitle()
               display current wrong times and wrong letter ,hint: getWrongLetters()
               ask user to guess again
-            if(win game){
+         }
+          if(win game){
               display you win
               display the movie title
-            }
           }
-          display Game over!you lost
-          display right movie title
+          else{
+           display Game over!you lost
+           display right movie title
+          }
 
         */
 
@@ -58,22 +60,26 @@ public class Main {
              System.out.println("You are guessing " + game.getHiddenMovieTitle());
 
              //display failure times and display incorrect letter that has been tried
-             System.out.println("You have guessed (" + game.getWrongAttempt() + ")" + "wrong letter : " + game.getWrongAttempt());
+             System.out.println("You have guessed (" + game.getWrongAttempt() + ") " + "wrong letter : " + game.getWrongLetters());
 
              //ask player to input letter
-             game.inputLetter();
+             //-verify"not a letter", "letter repeated", or "not guessed yet"
+             String input= game.inputLetter();
 
-             //the input is not tried before, verify whether this input is rightLetter or wrongLetter
-             game.verifyGuessLetter();
+             //the input is not tried before, add letter to either rightLetter or wrongLetter
+             game.verifyGuessLetter(input);
              System.out.println();
-             if (!game.getGameWon()) {
+         }
+
+
+         if (!game.getGameWon()) {
                  System.out.println("Congratulation, you win the game!");
                  System.out.println("The movie is " + game.getHiddenMovieTitle());
-             }
          }
-         System.out.println("Game Over!, you lost the game");
-         System.out.println("The movie name is "+game.getHiddenMovieTitle());
-
+         else {
+             System.out.println("Game Over!, you lost the game");
+             System.out.println("The movie name is " + randomMovie);
+         }
   }
 
 }

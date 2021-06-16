@@ -81,7 +81,7 @@ public class Game extends MovieList{
 
 //verify input letter is  "not a letter", "letter repeated", or "not guessed yet"
     public String inputLetter() {
-        System.out.println("Guess a letter");
+        System.out.print("Guess a letter : ");
         Scanner scanner = new Scanner(System.in);
         String letter = scanner.next().toLowerCase();
         //if enter detail is not a letter
@@ -97,7 +97,7 @@ public class Game extends MovieList{
         }
         //the letter is not tried yet
         else {
-            return letter;
+            return letter;//=>cannot I just write " return verifyGuessLetter(); " here?
         }
     }
 
@@ -114,8 +114,8 @@ public class Game extends MovieList{
      * else: otherwise, add it to wrong Letters object
      */
 
-    public void verifyGuessLetter() {
-        String guessedLetter = inputLetter();
+    public void verifyGuessLetter(String input) {
+        String guessedLetter = input;
         //guessedLetter matches with title
         if (movieToGuess.toLowerCase().contains(guessedLetter)) {
             rightLetters += guessedLetter + guessedLetter.toUpperCase();

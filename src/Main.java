@@ -15,7 +15,7 @@ public class Main {
 
          //set up a game
          Game game = new Game();
-
+         game.movieToGuess = randomMovie;
          //set up that random movie as encrypted one
          game.setEncryptedMovie(randomMovie);
 
@@ -71,15 +71,14 @@ public class Main {
              System.out.println();
          }
 
-
          if (!game.getGameWon()) {
-                 System.out.println("Congratulation, you win the game!");
-                 System.out.println("The movie is " + game.getHiddenMovieTitle());
-         }
-         else {
              System.out.println("Game Over!, you lost the game");
              System.out.println("The movie name is " + randomMovie);
+         }else{
+             System.out.println("Congratulation, you win the game!");
+             System.out.println("The movie is " + game.getHiddenMovieTitle());
          }
+
   }
 
 }

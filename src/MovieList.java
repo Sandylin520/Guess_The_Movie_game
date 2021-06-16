@@ -33,10 +33,11 @@ public class MovieList{
             while(scanner.hasNextLine()) {//check if there is a next line
                 movies.add(scanner.nextLine());//if yes,add content of nextLine() as an element to the list
             }
-            int movieListLength = movies.size();
+            movieListLength = movies.size();
         }catch(FileNotFoundException e){//if the file doesn't exit, throw exception
             System.out.println("File does not exist");
         }
+        System.out.println("movieListLength: "+ movieListLength );
 
  // System.out.println(movies);
  //  => [the shawshank redemption, the godfather, the dark knight, schindler's list, pulp fiction, the lord of the rings, the good the bad and the ugly]

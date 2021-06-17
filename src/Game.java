@@ -10,18 +10,18 @@ public class Game extends MovieList{
     private int wrongAttempt;
     private String wrongLetters;
     private String rightLetters;
+    private String guessedLetter;
     private boolean gameWon;
 
-//Que: because above instance variable are private,
-//   so i cannot use below way to set up default value
-//   and can only use setter getter ,is that correct?
-//
-//    public Game() {
-//        wrongAttempt = 0;
-//        wrongLetters = "";
-//        rightLetters = "";
-//        gameWon = false;
-//    }
+
+    public Game() {
+        wrongAttempt = 0;
+        wrongLetters = "";
+        rightLetters = "";
+        gameWon = false;
+
+    }
+
 
     public void setWrongAttempt(int wrongAttempt){
         this.wrongAttempt = wrongAttempt;
@@ -38,7 +38,6 @@ public class Game extends MovieList{
     }
 
 
-
     public void setRightLetters(String rightLetters){
         this.rightLetters = rightLetters;
     }
@@ -46,14 +45,15 @@ public class Game extends MovieList{
         return rightLetters;
     }
 
-
     public void setGameWon(boolean gameWon){ this.gameWon = false;}
     public boolean getGameWon(){return gameWon;}
 
+
     // method: end of the game to determine game to continue or not
     public boolean gameEnded() {
-        //if pointLoss >=10
-        if (wrongAttempt >= 10) {
+        //guessed incorrect letter for 10 times
+        if (wrongAttempt == 10) {
+            gameWon = true;
             return true;
         }
         //underscores are not covered at all in title, all characters are guessed correctly
@@ -97,7 +97,7 @@ public class Game extends MovieList{
         }
         //the letter is not tried yet
         else {
-            return letter;//=>cannot I just write " return verifyGuessLetter(); " here?
+            return letter;
         }
     }
 
@@ -116,14 +116,14 @@ public class Game extends MovieList{
 
     public void verifyGuessLetter(String input) {
         String guessedLetter = input;
-        //guessedLetter matches with title
+        //movie title matched with the guessedletter
         if (movieToGuess.toLowerCase().contains(guessedLetter)) {
             rightLetters += guessedLetter + guessedLetter.toUpperCase();
         }
-        //no match
+        //no match, print out the incorrect letter
         else
             wrongAttempt++;
-            wrongLetters += guessedLetter + guessedLetter.toUpperCase();
+            wrongLetters += guessedLetter;//add guessedletter to wrongLetters
     }
 
 

@@ -37,15 +37,18 @@ public class MovieList{
         }catch(FileNotFoundException e){//if the file doesn't exit, throw exception
             System.out.println("File does not exist");
         }
-        System.out.println("movieListLength: "+ movieListLength );
 
- // System.out.println(movies);
- //  => [the shawshank redemption, the godfather, the dark knight, schindler's list, pulp fiction, the lord of the rings, the good the bad and the ugly]
 
- // I have checked movies did content the array item but movies.size()  didnt return 7
- //Que: System.out.println("movieListLength: "+ movieListLength ); =>why print out movieListLength: 0
     }
 
+
+    public void  getMovieLength(int movieListLength){
+        this.movieListLength = movieListLength;
+    }
+
+    public int getMovieLength(){
+        return movieListLength;
+    }
 
     /*use Math.random method to get a random number,
     here movies.size() need not to add 1, because you store in an index*/

@@ -10,7 +10,7 @@ public class Game extends MovieList{
     private int wrongAttempt;
     private String wrongLetters;
     private String rightLetters;
-    private String guessedLetter;
+    //private String guessedLetter; no need to set, let it remain as local variable
     private boolean gameWon;
 
 
@@ -18,9 +18,16 @@ public class Game extends MovieList{
         wrongAttempt = 0;
         wrongLetters = "";
         rightLetters = "";
+        //guessedLetter = "";
         gameWon = false;
-
     }
+
+    @Override //checking whether initialized object is properly set or not
+    public String toString(){
+         return "{ wrongAttempt = " + " " + wrongAttempt + "; wrongLetters = " + wrongLetters +
+                "; rightLetters = " + " " + rightLetters  + ";  + gameWon = " + gameWon +"}" + "\n";
+    }
+
 
 
     public void setWrongAttempt(int wrongAttempt){
@@ -32,7 +39,7 @@ public class Game extends MovieList{
 
     public void setWrongLetters(String wrongLetters){
         this.wrongLetters = wrongLetters;
-    }
+    }//
     public String getWrongLetters(){
         return  wrongLetters;
     }
@@ -51,9 +58,9 @@ public class Game extends MovieList{
 
     // method: end of the game to determine game to continue or not
     public boolean gameEnded() {
-        //guessed incorrect letter for 10 times
+        //guessed incorrect letter for 10 times,
         if (wrongAttempt == 10) {
-            gameWon = true;
+          //gameWon= false , no need to write, this is default setting
             return true;
         }
         //underscores are not covered at all in title, all characters are guessed correctly
@@ -119,11 +126,14 @@ public class Game extends MovieList{
         //movie title matched with the guessedletter
         if (movieToGuess.toLowerCase().contains(guessedLetter)) {
             rightLetters += guessedLetter + guessedLetter.toUpperCase();
+          //System.out.println("rightLetters " + rightLetters);
         }
         //no match, print out the incorrect letter
-        else
+        else {
             wrongAttempt++;
             wrongLetters += guessedLetter;//add guessedletter to wrongLetters
+          // System.out.println("wrongLetters " + wrongLetters);
+        }
     }
 
 

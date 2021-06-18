@@ -74,6 +74,7 @@ public class Main {
             String input = game.inputLetter();
 
             //the input was not tried before, add letter to either rightLetter or wrongLetter
+
             game.verifyGuessLetter(input);
 
             //display failure times and display incorrect letter that has been tried
@@ -81,7 +82,7 @@ public class Main {
 
         }
 
-        if (!game.getGameWon()) {
+        if(game.getGameWon()) {
             System.out.println("Congratulation, you win the game!");
             System.out.println("The movie is " + game.getHiddenMovieTitle());
         } else {

@@ -15,7 +15,6 @@ public class MovieList{
     protected String encryptedMovie;
     private int movieListLength;
 
-
     MovieList(){}
 
     //initiate the movielist 將電影資料初始化 並在初始化中預防文件不存在的狀況
@@ -40,12 +39,9 @@ public class MovieList{
 
 
     }
-
-
     public void  getMovieLength(int movieListLength){
         this.movieListLength = movieListLength;
     }
-
     public int getMovieLength(){
         return movieListLength;
     }
@@ -55,13 +51,10 @@ public class MovieList{
 
     //generate a random movie from a movie list through index
     public String getRandomMovie() {
-
         int movieIndex = (int)(Math.random() * movieListLength);
         movieToGuess = movies.get(movieIndex).trim();//get the item from array,remove additional space
         return movieToGuess;
     }
-
-
 
     //set up encryptedMovie   將前面取得的任意電影名字設定為要被加密的電影
     void setEncryptedMovie(String movieToGuess) {

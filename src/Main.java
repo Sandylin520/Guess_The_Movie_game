@@ -46,7 +46,7 @@ public class Main {
                 + "If not, you lose a point." + "\n");
         System.out.println("If you lose 10 points, game over!");
         System.out.println("Let's start!");
-
+        //System.out.println(game.rightLetters);
 
         /*while(not gameEnded){
               display current hidden movie title , hint:getHiddenMovieTitle()

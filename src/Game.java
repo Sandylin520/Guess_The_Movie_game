@@ -15,12 +15,13 @@ public class Game extends MovieList{
 
 
     public Game() {
-        wrongAttempt = 0;
-        wrongLetters = "";
-        rightLetters = "";
-        //guessedLetter = "";
-        gameWon = false;
+//        wrongAttempt = 0; can follow default setting
+          wrongLetters = "";
+          rightLetters = "";
+//        guessedLetter = ""; remain local varaible,no need to write
+//        gameWon = false; can follow default setting
     }
+
 
     @Override //checking whether initialized object is properly set or not
     public String toString(){
@@ -150,7 +151,7 @@ public class Game extends MovieList{
 
     //method report latest guessed result of movie title
     public String getHiddenMovieTitle() {
-        if (rightLetters.equals("")) {
+        if (rightLetters.equals("")) {//"".equals(rightLetters) //rightLetters.equals("")
             return encryptedMovie.replaceAll("[a-zA-Z]", "_");
         } else {
             return encryptedMovie.replaceAll("[a-zA-Z&&[^" + rightLetters + "]]", "_");
